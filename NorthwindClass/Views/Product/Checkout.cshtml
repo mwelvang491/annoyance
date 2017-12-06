@@ -1,0 +1,57 @@
+﻿
+@{
+    ViewBag.Title = "Checkout";
+    int i=0;
+}
+@*
+    customerName
+    streetAddress
+    state
+    zip
+    discount
+*@
+  
+<h2>Checkout</h2>
+<div class="jumbotron">
+    <h2>Order Total: <b>$</b><label id="orderTotal"></label></h2>
+    <p id="orderInfo"></p>
+</div>
+
+<div class="jumbotron" style="max-width: 700px ">
+    <h2>Delivery Address</h2>
+    <p id="customerName"></p>
+    <p id="streetAddress"></p>
+    <p id="cityStateZip"></p>
+</div>
+
+    <script type="text/javascript">
+
+
+        window.onload = function getCustInfo() {
+
+            var customerName = sessionStorage.customerName;
+            var streetAddress = sessionStorage.streetAddress;
+            var city = sessionStorage.city;
+            var state = sessionStorage.state;
+            var zip = sessionStorage.zip
+            var discount = sessionStorage.discount;
+            var orderTotal = sessionStorage.orderTotal;
+            var orderInfo = sessionStorage.orderInfo;
+
+            if (discount == "discount10" || "Discount10") {
+                orderTotal = orderTotal - (orderTotal * .10);
+
+            }
+
+
+
+            document.getElementById("orderInfo").innerHTML = orderInfo;
+            document.getElementById("orderTotal").innerHTML = Number(orderTotal).toFixed(2);
+            document.getElementById("customerName").innerHTML = customerName;
+            document.getElementById("streetAddress").innerHTML = streetAddress;
+            document.getElementById("cityStateZip").innerHTML = city + " " + state + " " + zip;
+            //  document.getElementById("state").innerHTML = state;
+            //  document.getElementById("zip").innerHTML = zip;
+            //  document.getElementById("discount").innerHTML = discount;
+        }
+    </script>

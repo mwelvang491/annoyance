@@ -1,0 +1,82 @@
+﻿
+@{
+    ViewBag.Title = "CustomerInfo";
+    var i = 0;
+}
+
+<h2>CustomerInfo</h2>
+<div class="jumbotron">
+<h2>Order Total: <b>$</b><label id="orderTotal"></label></h2>
+<p id="orderInfo"></p>
+</div>
+
+<label>Name <br />
+    <input type="text" class="input-sm" id="customerName"/>  </label><br />
+
+<label>Street Address <br />
+    <input type="text" class="input-sm" id="customerSA" />  </label><br />
+
+<label>City <br />
+    <input type="text" class="input-sm" id="customerCity" />  </label>
+
+<label>State <br />
+    <input type="text" class="input-sm" id="customerState" />  </label>
+
+<label>Zip <br />
+    <input type="text" class="input-sm" id="customerZip" />  </label><br />
+
+<label>Discount Code <br />
+    <input type="text" class="input-sm" id="customerDiscountCode" />  </label><br />
+
+
+
+<td><button onclick="getCustomerInfo()" >Check Out </button></td> <br /> 
+
+
+<script type="text/javascript">
+
+    
+    window.onload = function getOrder() {
+        var orderTotal = sessionStorage.orderTotal;
+        var orderInfo = sessionStorage.orderInfo;
+
+        document.getElementById("orderInfo").innerHTML = orderInfo.replace(/!/g, "<br />");
+        document.getElementById("orderTotal").innerHTML = Number(orderTotal).toFixed(2);
+
+        //orderInfo = document.getElementById("orderInfo").innerHTML;
+    }
+
+
+
+    function getCustomerInfo() {
+                
+        customerName = document.getElementById("customerName").value;
+        streetAddress = document.getElementById("customerSA").value;
+        city = document.getElementById("customerCity").value;
+        state =  document.getElementById("customerState").value  ;  
+        zip = document.getElementById("customerZip").value;
+        discount = document.getElementById("customerDiscountCode").value;
+        orderTotal = document.getElementById("orderTotal").innerHTML;
+        orderInfo = document.getElementById("orderInfo").innerHTML;
+
+            sessionStorage.setItem('customerName',  customerName);
+            sessionStorage.setItem('streetAddress', streetAddress);
+            sessionStorage.setItem('city',          city);
+            sessionStorage.setItem('state',         state);
+            sessionStorage.setItem('zip',           zip );
+            sessionStorage.setItem('discount',      discount);
+            sessionStorage.setItem('orderTotal',    orderTotal);
+            sessionStorage.setItem('orderInfo',     orderInfo);
+           
+            if (customerName.length <= 0 || streetAddress.length <= 0
+                || city.length <= 0 || state.length <= 0 || zip.length <=0) {
+                alert("Missing A Required Value");
+            } else {
+                location.href = "http://mwelvangmidterm.azurewebsites.net/Product/Checkout";
+            }
+           
+
+    }
+        
+
+</script>
