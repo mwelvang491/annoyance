@@ -20,6 +20,8 @@
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <Use64BitIISExpress />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -177,6 +179,7 @@
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Chart.css" />
     <Content Include="favicon.ico" />
     <Content Include="Controllers\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -185,7 +188,73 @@
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Properties\PublishProfiles\MwelvangMidTerm - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\MwelvangMidTerm - Web Deploy.pubxml" />
+    <Content Include="Scripts\Chart.bundle.min.js" />
+    <Content Include="Scripts\Chart.js\LICENSE.md" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\Chart.js\Chart.bundle.js" />
+    <Content Include="Scripts\Chart.js\Chart.bundle.min.js" />
+    <Content Include="Scripts\Chart.js\Chart.js" />
+    <Content Include="Scripts\Chart.js\Chart.min.js" />
+    <Content Include="Scripts\Chart.js\samples\advanced\data-labelling.html" />
+    <Content Include="Scripts\Chart.js\samples\advanced\progress-bar.html" />
+    <Content Include="Scripts\Chart.js\samples\charts\area\analyser.js" />
+    <Content Include="Scripts\Chart.js\samples\charts\area\line-boundaries.html" />
+    <Content Include="Scripts\Chart.js\samples\charts\area\line-datasets.html" />
+    <Content Include="Scripts\Chart.js\samples\charts\area\line-stacked.html" />
+    <Content Include="Scripts\Chart.js\samples\charts\area\radar.html" />
+    <Content Include="Scripts\Chart.js\samples\charts\bar\horizontal.html" />
+    <Content Include="Scripts\Chart.js\samples\charts\bar\multi-axis.html" />
+    <Content Include="Scripts\Chart.js\samples\charts\bar\stacked-group.html" />
+    <Content Include="Scripts\Chart.js\samples\charts\bar\stacked.html" />
+    <Content Include="Scripts\Chart.js\samples\charts\bar\vertical.html" />
+    <Content Include="Scripts\Chart.js\samples\charts\bubble.html" />
+    <Content Include="Scripts\Chart.js\samples\charts\combo-bar-line.html" />
+    <Content Include="Scripts\Chart.js\samples\charts\doughnut.html" />
+    <Content Include="Scripts\Chart.js\samples\charts\line\basic.html" />
+    <Content Include="Scripts\Chart.js\samples\charts\line\interpolation-modes.html" />
+    <Content Include="Scripts\Chart.js\samples\charts\line\line-styles.html" />
+    <Content Include="Scripts\Chart.js\samples\charts\line\multi-axis.html" />
+    <Content Include="Scripts\Chart.js\samples\charts\line\point-sizes.html" />
+    <Content Include="Scripts\Chart.js\samples\charts\line\point-styles.html" />
+    <Content Include="Scripts\Chart.js\samples\charts\line\skip-points.html" />
+    <Content Include="Scripts\Chart.js\samples\charts\line\stepped.html" />
+    <Content Include="Scripts\Chart.js\samples\charts\pie.html" />
+    <Content Include="Scripts\Chart.js\samples\charts\polar-area.html" />
+    <Content Include="Scripts\Chart.js\samples\charts\radar-skip-points.html" />
+    <Content Include="Scripts\Chart.js\samples\charts\radar.html" />
+    <Content Include="Scripts\Chart.js\samples\charts\scatter\basic.html" />
+    <Content Include="Scripts\Chart.js\samples\charts\scatter\multi-axis.html" />
+    <Content Include="Scripts\Chart.js\samples\favicon.ico" />
+    <Content Include="Scripts\Chart.js\samples\index.html" />
+    <Content Include="Scripts\Chart.js\samples\legend\point-style.html" />
+    <Content Include="Scripts\Chart.js\samples\legend\positioning.html" />
+    <Content Include="Scripts\Chart.js\samples\logo.svg" />
+    <Content Include="Scripts\Chart.js\samples\samples.js" />
+    <Content Include="Scripts\Chart.js\samples\scales\filtering-labels.html" />
+    <Content Include="Scripts\Chart.js\samples\scales\gridlines-display.html" />
+    <Content Include="Scripts\Chart.js\samples\scales\gridlines-style.html" />
+    <Content Include="Scripts\Chart.js\samples\scales\linear\min-max-suggested.html" />
+    <Content Include="Scripts\Chart.js\samples\scales\linear\min-max.html" />
+    <Content Include="Scripts\Chart.js\samples\scales\linear\step-size.html" />
+    <Content Include="Scripts\Chart.js\samples\scales\logarithmic\line.html" />
+    <Content Include="Scripts\Chart.js\samples\scales\logarithmic\scatter.html" />
+    <Content Include="Scripts\Chart.js\samples\scales\multiline-labels.html" />
+    <Content Include="Scripts\Chart.js\samples\scales\non-numeric-y.html" />
+    <Content Include="Scripts\Chart.js\samples\scales\time\combo.html" />
+    <Content Include="Scripts\Chart.js\samples\scales\time\financial.html" />
+    <Content Include="Scripts\Chart.js\samples\scales\time\line-point-data.html" />
+    <Content Include="Scripts\Chart.js\samples\scales\time\line.html" />
+    <Content Include="Scripts\Chart.js\samples\scriptable\bubble.html" />
+    <Content Include="Scripts\Chart.js\samples\style.css" />
+    <Content Include="Scripts\Chart.js\samples\tooltips\border.html" />
+    <Content Include="Scripts\Chart.js\samples\tooltips\callbacks.html" />
+    <Content Include="Scripts\Chart.js\samples\tooltips\custom-line.html" />
+    <Content Include="Scripts\Chart.js\samples\tooltips\custom-pie.html" />
+    <Content Include="Scripts\Chart.js\samples\tooltips\custom-points.html" />
+    <Content Include="Scripts\Chart.js\samples\tooltips\interactions.html" />
+    <Content Include="Scripts\Chart.js\samples\tooltips\positioning.html" />
+    <Content Include="Scripts\Chart.js\samples\utils.js" />
+    <Content Include="Scripts\Chart.min.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
@@ -197,6 +266,7 @@
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\utils.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -241,6 +311,7 @@
       <BrowseToURL>~/Home/product</BrowseToURL>
     </Content>
     <Content Include="Views\Home\Categories.cshtml" />
+    <Content Include="Views\Customer\ChartData.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
