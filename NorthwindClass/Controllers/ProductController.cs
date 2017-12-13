@@ -48,6 +48,7 @@ namespace NorthwindClass.Controllers
 
         public ActionResult ChartData()
         {
+
             return View();
         }
     }
