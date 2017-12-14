@@ -1,49 +1,99 @@
-﻿using NorthwindClass.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace NorthwindClass.Controllers
+using System.Net;
+using NorthwindClass.Models;
+
+namespace Northwind.Controllers
 {
     public class ProductController : Controller
     {
-       List<Product> products;
-
-        // GET: /Product/
-        public ActionResult Index()
+        // GET: Product/Category
+        public ActionResult Category()
         {
-            return View();
-        }
-        public ActionResult Checkout()
-        {
-            return View();
+            // retrieve a list of all categories
+            using (NORTHWNDEntities db = new NORTHWNDEntities())
+            {
+                return View(db.Categories.OrderBy(c => c.CategoryName).ToList());
+            }
         }
         // GET: Product/Discount
         public ActionResult Discount()
         {
-            return View();
+            // retrive a list of discounts 
+            using (NORTHWNDEntities db = new NORTHWNDEntities())
+            {
+                // Filter by date
+                DateTime now = DateTime.Now;
+                return View(db.Discounts.Where(s => s.StartTime <= now && s.EndTime > now).ToList());
+            }
         }
-
-        public ActionResult CustomerInfo()
+        // GET: Product/Search
+        public ActionResult Search()
         {
             return View();
         }
-
-        public ActionResult ProductSearch()
+        // POST: Product/SearchResults
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult SearchResults(FormCollection Form)
         {
-            products = new List<Product>();
-            products.Add(new Product { productName = "Fancy French Wine",           productPrice = 22.99, productId = 1 });
-            products.Add(new Product { productName = "German Dark Chocolate Bars",  productPrice = 2.99, productId = 2 });
-            products.Add(new Product { productName = "HoneyCrisp Apple",            productPrice =  .99, productId = 3 });
-            products.Add(new Product { productName = "Carving Pumpkin",             productPrice = 3.99, productId = 4 });
-            products.Add(new Product { productName = "Coffee Beans (1Lb)",          productPrice = 5.99, productId = 5 });
-            products.Add(new Product { productName = "Organic Mac and Cheese",      productPrice = 4.99, productId = 6 });
-
-            ViewBag.data = products;    
-
-            return View();
+            string SearchString = Form["SearchString"];
+            ViewBag.Filter = "Product";
+            using (NORTHWNDEntities db = new NORTHWNDEntities())
+            {
+                return View("Product", db.Products.Where(p => p.ProductName.Contains(SearchString) && p.Discontinued == false).OrderBy(p => p.ProductName).ToList());
+            }
         }
-	}
+        // GET: Product/Product/1
+        public ActionResult Product(int? id)
+        {
+            // if there is no "category" id, return Http Bad Request
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            using (NORTHWNDEntities db = new NORTHWNDEntities())
+            {
+                // save the selected category name to the ViewBag
+                ViewBag.Filter = db.Categories.Find(id).CategoryName;
+                // retrieve list of products
+                return View(db.Products.Where(p => p.CategoryID == id && p.Discontinued == false).OrderBy(p => p.ProductName).ToList());
+            }
+        }
+
+        public JsonResult FilterProducts(int? id, String SearchString, decimal PriceFilter)
+        {
+            using (NORTHWNDEntities db = new NORTHWNDEntities())
+            {
+                var Products = db.Products.Where(p => p.Discontinued == false).ToList();
+                if (id != null)
+                {
+                    Products = Products.Where(p => p.CategoryID == id).ToList();
+                }
+                if (!String.IsNullOrEmpty(SearchString))
+                {
+                    Products = Products.Where(p => p.ProductName.Contains(SearchString)).ToList();
+                }
+                var ProductDTOs = (from p in Products.Where(p => p.UnitPrice >= 10)
+                                   orderby p.ProductName
+                                   select new
+                                   {
+                                       p.ProductID,
+                                       p.ProductName,
+                                       p.QuantityPerUnit,
+                                       p.UnitPrice,
+                                       p.UnitsInStock
+                                   }).ToList();
+                return Json(ProductDTOs, JsonRequestBehavior.AllowGet);
+            }
+        }
+
+
+
+    }
 }
+
