@@ -10,7 +10,9 @@ namespace NorthwindClass
         {
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
                         "~/Scripts/jquery-{version}.js",
-                        "~/Scripts/jquery-ui.min.js"));
+                        "~/Scripts/jquery-ui.min.js",
+                        "~/Scripts/Chart.bundle.min.js",
+                        "~/Scripts/utils.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
                         "~/Scripts/jquery.validate*"));
@@ -26,7 +28,8 @@ namespace NorthwindClass
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
-                      "~/Content/Site.css"));
+                      "~/Content/Site.css",
+                      "~/Content/Chart.css"));
         }
     }
 }
