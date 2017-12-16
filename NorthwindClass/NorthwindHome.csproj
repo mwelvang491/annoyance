@@ -20,8 +20,8 @@
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
-    <UseGlobalApplicationHostFile />
     <Use64BitIISExpress />
+    <UseGlobalApplicationHostFile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -45,6 +45,8 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -170,91 +172,90 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
-    <Compile Include="Models\Category.cs" />
+    <Compile Include="Models\Cart.cs">
+      <DependentUpon>NORTHWNDModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Category.cs">
+      <DependentUpon>NORTHWNDModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Customer.cs">
+      <DependentUpon>NORTHWNDModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Discount.cs">
+      <DependentUpon>NORTHWNDModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Employee.cs">
+      <DependentUpon>NORTHWNDModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\IdentityModels.cs" />
-    <Compile Include="Models\Product.cs" />
+    <Compile Include="Models\NORTHWNDModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>NORTHWNDModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\NORTHWNDModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>NORTHWNDModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\NORTHWNDModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>NORTHWNDModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Order.cs">
+      <DependentUpon>NORTHWNDModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Order_Detail.cs">
+      <DependentUpon>NORTHWNDModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Product.cs">
+      <DependentUpon>NORTHWNDModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Region.cs">
+      <DependentUpon>NORTHWNDModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Shipper.cs">
+      <DependentUpon>NORTHWNDModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Supplier.cs">
+      <DependentUpon>NORTHWNDModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Territory.cs">
+      <DependentUpon>NORTHWNDModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
-    <Content Include="Content\Chart.css" />
     <Content Include="favicon.ico" />
     <Content Include="Controllers\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Models\NORTHWNDModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>NORTHWNDModel.edmx</DependentUpon>
+      <LastGenOutput>NORTHWNDModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\NORTHWNDModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>NORTHWNDModel.edmx</DependentUpon>
+      <LastGenOutput>NORTHWNDModel.cs</LastGenOutput>
+    </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <EntityDeploy Include="Models\NORTHWNDModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>NORTHWNDModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\NORTHWNDModel.edmx.diagram">
+      <DependentUpon>NORTHWNDModel.edmx</DependentUpon>
+    </Content>
     <None Include="Properties\PublishProfiles\MwelvangMidTerm - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\MwelvangMidTerm - Web Deploy.pubxml" />
-    <Content Include="Scripts\Chart.bundle.min.js" />
-    <Content Include="Scripts\Chart.js\LICENSE.md" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
-    <Content Include="Scripts\Chart.js\Chart.bundle.js" />
-    <Content Include="Scripts\Chart.js\Chart.bundle.min.js" />
-    <Content Include="Scripts\Chart.js\Chart.js" />
-    <Content Include="Scripts\Chart.js\Chart.min.js" />
-    <Content Include="Scripts\Chart.js\samples\advanced\data-labelling.html" />
-    <Content Include="Scripts\Chart.js\samples\advanced\progress-bar.html" />
-    <Content Include="Scripts\Chart.js\samples\charts\area\analyser.js" />
-    <Content Include="Scripts\Chart.js\samples\charts\area\line-boundaries.html" />
-    <Content Include="Scripts\Chart.js\samples\charts\area\line-datasets.html" />
-    <Content Include="Scripts\Chart.js\samples\charts\area\line-stacked.html" />
-    <Content Include="Scripts\Chart.js\samples\charts\area\radar.html" />
-    <Content Include="Scripts\Chart.js\samples\charts\bar\horizontal.html" />
-    <Content Include="Scripts\Chart.js\samples\charts\bar\multi-axis.html" />
-    <Content Include="Scripts\Chart.js\samples\charts\bar\stacked-group.html" />
-    <Content Include="Scripts\Chart.js\samples\charts\bar\stacked.html" />
-    <Content Include="Scripts\Chart.js\samples\charts\bar\vertical.html" />
-    <Content Include="Scripts\Chart.js\samples\charts\bubble.html" />
-    <Content Include="Scripts\Chart.js\samples\charts\combo-bar-line.html" />
-    <Content Include="Scripts\Chart.js\samples\charts\doughnut.html" />
-    <Content Include="Scripts\Chart.js\samples\charts\line\basic.html" />
-    <Content Include="Scripts\Chart.js\samples\charts\line\interpolation-modes.html" />
-    <Content Include="Scripts\Chart.js\samples\charts\line\line-styles.html" />
-    <Content Include="Scripts\Chart.js\samples\charts\line\multi-axis.html" />
-    <Content Include="Scripts\Chart.js\samples\charts\line\point-sizes.html" />
-    <Content Include="Scripts\Chart.js\samples\charts\line\point-styles.html" />
-    <Content Include="Scripts\Chart.js\samples\charts\line\skip-points.html" />
-    <Content Include="Scripts\Chart.js\samples\charts\line\stepped.html" />
-    <Content Include="Scripts\Chart.js\samples\charts\pie.html" />
-    <Content Include="Scripts\Chart.js\samples\charts\polar-area.html" />
-    <Content Include="Scripts\Chart.js\samples\charts\radar-skip-points.html" />
-    <Content Include="Scripts\Chart.js\samples\charts\radar.html" />
-    <Content Include="Scripts\Chart.js\samples\charts\scatter\basic.html" />
-    <Content Include="Scripts\Chart.js\samples\charts\scatter\multi-axis.html" />
-    <Content Include="Scripts\Chart.js\samples\favicon.ico" />
-    <Content Include="Scripts\Chart.js\samples\index.html" />
-    <Content Include="Scripts\Chart.js\samples\legend\point-style.html" />
-    <Content Include="Scripts\Chart.js\samples\legend\positioning.html" />
-    <Content Include="Scripts\Chart.js\samples\logo.svg" />
-    <Content Include="Scripts\Chart.js\samples\samples.js" />
-    <Content Include="Scripts\Chart.js\samples\scales\filtering-labels.html" />
-    <Content Include="Scripts\Chart.js\samples\scales\gridlines-display.html" />
-    <Content Include="Scripts\Chart.js\samples\scales\gridlines-style.html" />
-    <Content Include="Scripts\Chart.js\samples\scales\linear\min-max-suggested.html" />
-    <Content Include="Scripts\Chart.js\samples\scales\linear\min-max.html" />
-    <Content Include="Scripts\Chart.js\samples\scales\linear\step-size.html" />
-    <Content Include="Scripts\Chart.js\samples\scales\logarithmic\line.html" />
-    <Content Include="Scripts\Chart.js\samples\scales\logarithmic\scatter.html" />
-    <Content Include="Scripts\Chart.js\samples\scales\multiline-labels.html" />
-    <Content Include="Scripts\Chart.js\samples\scales\non-numeric-y.html" />
-    <Content Include="Scripts\Chart.js\samples\scales\time\combo.html" />
-    <Content Include="Scripts\Chart.js\samples\scales\time\financial.html" />
-    <Content Include="Scripts\Chart.js\samples\scales\time\line-point-data.html" />
-    <Content Include="Scripts\Chart.js\samples\scales\time\line.html" />
-    <Content Include="Scripts\Chart.js\samples\scriptable\bubble.html" />
-    <Content Include="Scripts\Chart.js\samples\style.css" />
-    <Content Include="Scripts\Chart.js\samples\tooltips\border.html" />
-    <Content Include="Scripts\Chart.js\samples\tooltips\callbacks.html" />
-    <Content Include="Scripts\Chart.js\samples\tooltips\custom-line.html" />
-    <Content Include="Scripts\Chart.js\samples\tooltips\custom-pie.html" />
-    <Content Include="Scripts\Chart.js\samples\tooltips\custom-points.html" />
-    <Content Include="Scripts\Chart.js\samples\tooltips\interactions.html" />
-    <Content Include="Scripts\Chart.js\samples\tooltips\positioning.html" />
-    <Content Include="Scripts\Chart.js\samples\utils.js" />
-    <Content Include="Scripts\Chart.min.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
@@ -266,9 +267,10 @@
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
-    <Content Include="Scripts\utils.js" />
     <Content Include="Scripts\_references.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -311,7 +313,7 @@
       <BrowseToURL>~/Home/product</BrowseToURL>
     </Content>
     <Content Include="Views\Home\Categories.cshtml" />
-    <Content Include="Views\Product\ChartData.cshtml" />
+    <Content Include="Views\Home\DBTest.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -322,6 +324,9 @@
     <Content Include="Controllers\fonts\glyphicons-halflings-regular.eot" />
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
