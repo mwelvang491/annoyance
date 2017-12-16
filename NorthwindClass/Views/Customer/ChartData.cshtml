@@ -1,7 +1,5 @@
-﻿@{ 
-
-    int ChartLoopingDataNumbers = 2;
-
+﻿
+@{
     ViewBag.Title = "ChartData";
 }
 <div class="Chart-Container">
@@ -14,14 +12,12 @@
                 return Math.round(Math.random() * 100);
             };
 
-            var ChartLoopingDataNumbers = @ChartLoopingDataNumbers;
-
             var config = {
                 type: 'pie',
                 data: {
                     datasets: [{
                         data: [
-                            ChartLoopingDataNumbers,
+                            randomScalingFactor(),
                             randomScalingFactor(),
                             randomScalingFactor(),
                             randomScalingFactor(),
