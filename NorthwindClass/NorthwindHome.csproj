@@ -175,6 +175,7 @@
     <Compile Include="Models\Cart.cs">
       <DependentUpon>NORTHWNDModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Categories.cs" />
     <Compile Include="Models\Category.cs">
       <DependentUpon>NORTHWNDModel.tt</DependentUpon>
     </Compile>

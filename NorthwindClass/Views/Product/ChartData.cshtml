@@ -1,83 +1,87 @@
-﻿@{ 
-
-    int ChartLoopingDataNumbers = 2;
-
+﻿@using NorthwindClass.Models;
+    @{
     ViewBag.Title = "ChartData";
-}
-<div class="Chart-Container">
-    <canvas id="chart-area" width="400" height="400"></canvas>
-</div>
+    }
+    <div class="Chart-Container">
+        <canvas id="chart-area" width="400" height="400"></canvas>
+    </div>
 
-@section Scripts{
-        <script>
-            var randomScalingFactor = function () {
-                return Math.round(Math.random() * 100);
-            };
+    @section Scripts{
+    <script>
+        var randomScalingFactor = function () {
+            return Math.round(Math.random() * 100);
+        };
+        var BeveragesTotal = @ViewBag.BeveragesTotal;
+        var CondimentsTotal = @ViewBag.CondimentsTotal;
+        var ConfectionsTotal = @ViewBag.ConfectionsTotal;
+        var DairyTotal = @ViewBag.DairyTotal;
+        var GrainsTotal = @ViewBag.GrainsTotal;
+        var MeatTotal = @ViewBag.MeatTotal;
+        var ProduceTotal = @ViewBag.ProduceTotal;
+        var SeaFoodTotal = @ViewBag.SeaFoodTotal;
 
-            var ChartLoopingDataNumbers = @ChartLoopingDataNumbers;
-
-            var config = {
-                type: 'pie',
-                data: {
-                    datasets: [{
-                        data: [
-                            ChartLoopingDataNumbers,
-                            randomScalingFactor(),
-                            randomScalingFactor(),
-                            randomScalingFactor(),
-                            randomScalingFactor(),
-                            randomScalingFactor(),
-                            randomScalingFactor(),
-                            randomScalingFactor()
-                        ],
-                        backgroundColor: [
-                            window.chartColors.red,
-                            window.chartColors.orange,
-                            window.chartColors.yellow,
-                            window.chartColors.green,
-                            window.chartColors.blue,
-                            window.chartColors.gray,
-                            window.chartColors.lightblue,
-                            window.chartColors.crismon,
-                        ],
-                        label: 'Dataset 1'
-                    }],
-                    labels: [
-                        "Beverages",
-                        "Condiments",
-                        "Confections",
-                        "Dairy Prodicts",
-                        "Grains/Cereals",
-                        "Meat/Poultry",
-                        "Produce",
-                        "Seafood"
-                    ]
+        var config = {
+            type: 'pie',
+            data: {
+                datasets: [{
+                    data: [
+                        BeveragesTotal,
+                        CondimentsTotal,
+                        ConfectionsTotal,
+                        DairyTotal,
+                        GrainsTotal,
+                        MeatTotal,
+                        ProduceTotal,
+                        SeaFoodTotal
+                    ],
+                    backgroundColor: [
+                        window.chartColors.red,
+                        window.chartColors.orange,
+                        window.chartColors.yellow,
+                        window.chartColors.green,
+                        window.chartColors.blue,
+                        window.chartColors.gray,
+                        window.chartColors.yellow,
+                        window.chartColors.green
+                    ],
+                    label: 'Dataset 1'
+                }],
+                labels: [
+                    "Beverages",
+                    "Condiments",
+                    "Confections",
+                    "Dairy Prodicts",
+                    "Grains/Cereals",
+                    "Meat/Poultry",
+                    "Produce",
+                    "Seafood"
+                ]
+            },
+            options: {
+                responsive: true,
+                title: {
+                    display: true,
+                    text: 'Categories',
+                    fontSize: 30
                 },
-                options: {
-                    responsive: true,
-                    title: {
-                        display: true,
-                        text: 'Categories',
-                        fontSize: 30
+                legend: {
+                    display: true,
+                    labels: {
+                        fontColor: 'black'
                     },
-                    legend: {
-                        display: true,
-                        labels: {
-                            fontColor: 'black'
-                        },
-                        onClick: function (onClick, item) {
-                            alert("Ok, so on the legend click we will direct them to a new page");
-                        }
+                    onClick: function (onClick, item) {
+                        alert("Ok, so on the legend click we will direct them to a new page");
                     }
                 }
-            };
-
-            window.onload = function () {
-                var ctx = document.getElementById("chart-area").getContext("2d");
-                window.myPie = new Chart(ctx, config);
             }
+        };
+
+        window.onload = function () {
+            var ctx = document.getElementById("chart-area").getContext("2d");
+            window.myPie = new Chart(ctx, config);
+        }
 
 
 
-</script>
-}
+    </script>
+    }

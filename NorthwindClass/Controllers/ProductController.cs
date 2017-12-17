@@ -92,9 +92,23 @@ namespace Northwind.Controllers
             }
         }
 
+
         public ActionResult ChartData()
         {
-            return View();
+            // retrieve a list of all categories
+            using (NORTHWNDEntities db = new NORTHWNDEntities())
+            {
+                ViewBag.BeveragesTotal = db.Products.Count(p => p.CategoryID == 1);
+                ViewBag.CondimentsTotal = db.Products.Count(p => p.CategoryID == 2);
+                ViewBag.ConfectionsTotal = db.Products.Count(p => p.CategoryID == 3);
+                ViewBag.DairyTotal = db.Products.Count(p => p.CategoryID == 4);
+                ViewBag.GrainsTotal = db.Products.Count(p => p.CategoryID == 5);
+                ViewBag.MeatTotal = db.Products.Count(p => p.CategoryID == 5);
+                ViewBag.ProduceTotal = db.Products.Count(p => p.CategoryID == 5);
+                ViewBag.SeaFoodTotal = db.Products.Count(p => p.CategoryID == 5);
+
+                return View();
+            }
         }
 
     }
