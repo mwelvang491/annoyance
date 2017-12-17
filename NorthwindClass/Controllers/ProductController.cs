@@ -92,7 +92,10 @@ namespace Northwind.Controllers
             }
         }
 
-
+        public ActionResult ChartData()
+        {
+            return View();
+        }
 
     }
 }
