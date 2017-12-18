@@ -327,7 +327,6 @@ C:\Users\mitchell\Desktop\FinallProject\annoyance\NorthwindClass\bin\Microsoft.O
 C:\Users\mitchell\Desktop\FinallProject\annoyance\NorthwindClass\bin\Microsoft.Owin.Security.Google.xml
 C:\Users\mitchell\Desktop\FinallProject\annoyance\NorthwindClass\bin\Microsoft.Owin.Security.Twitter.xml
 C:\Users\mitchell\Desktop\FinallProject\annoyance\NorthwindClass\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
-C:\Users\mitchell\Desktop\FinallProject\annoyance\NorthwindClass\obj\Debug\NorthwindHome.csprojResolveAssemblyReference.cache
 C:\Users\mitchell\Desktop\FinallProject\annoyance\NorthwindClass\obj\Debug\NorthwindHome.csproj.CoreCompileInputs.cache
 C:\Users\mitchell\Desktop\FinallProject\annoyance\NorthwindClass\obj\Debug\NorthwindClass.dll
 C:\Users\mitchell\Desktop\FinallProject\annoyance\NorthwindClass\obj\Debug\NorthwindClass.pdb

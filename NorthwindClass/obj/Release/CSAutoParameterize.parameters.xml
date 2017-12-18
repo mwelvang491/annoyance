@@ -3,4 +3,7 @@
   <parameter name="NORTHWNDEntities-Web.config Connection String" description="NORTHWNDEntities Connection String used in web.config by the application to access the database." defaultValue="metadata=res://*/Models.NORTHWNDModel.csdl|res://*/Models.NORTHWNDModel.ssdl|res://*/Models.NORTHWNDModel.msl;provider=System.Data.SqlClient;provider connection string=&quot;data source=ihatemylife.database.windows.net;initial catalog=wctc_mmc;user id=mwelvang1;password=Bugsbunny101;multipleactiveresultsets=True;application name=EntityFramework&quot;" tags="SqlConnectionString">
     <parameterEntry kind="XmlFile" scope="C:\\Users\\mitchell\\Desktop\\FinallProject\\annoyance\\NorthwindClass\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='NORTHWNDEntities']/@connectionString" />
   </parameter>
+  <parameter name="DefaultConnection-Web.config Connection String" description="DefaultConnection Connection String used in web.config by the application to access the database." defaultValue="DefaultConnection_ConnectionString" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\mitchell\\Desktop\\FinallProject\\annoyance\\NorthwindClass\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='DefaultConnection']/@connectionString" />
+  </parameter>
 </parameters>

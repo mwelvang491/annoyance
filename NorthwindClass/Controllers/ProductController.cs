@@ -127,9 +127,10 @@ namespace Northwind.Controllers
             // retrieve a list of all categories
             using (NORTHWNDEntities db = new NORTHWNDEntities())
             {
-                ViewBag.Set1 = db.Products.Count(p => p.UnitPrice >= 5 && p.CategoryID == 1);
-                ViewBag.Set2 = db.Products.Count(p => p.UnitPrice >= 5 && p.UnitPrice <= 15 && p.CategoryID == 1);
-                ViewBag.Set3 = db.Products.Count(p => p.UnitPrice >= 15 && p.CategoryID == 1);
+                ViewBag.Set1 = db.Products.Count(p => p.UnitPrice >= 5);
+                ViewBag.Set2 = db.Products.Count(p => p.UnitPrice >= 5  && p.UnitPrice < 15);
+                ViewBag.Set3 = db.Products.Count(p => p.UnitPrice >= 15 && p.UnitPrice < 25);
+                ViewBag.Set4 = db.Products.Count(p => p.UnitPrice >= 25);
                 return View();
             }
         }

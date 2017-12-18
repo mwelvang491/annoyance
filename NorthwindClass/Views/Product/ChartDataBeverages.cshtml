@@ -22,6 +22,7 @@
             var Set1Total = @ViewBag.Set1;
             var Set2Total = @ViewBag.Set2;
             var Set3Total = @ViewBag.Set3;
+            var Set4Total = @ViewBag.Set4;
 
         var config = {
             type: 'pie',
@@ -31,18 +32,22 @@
                         Set1Total,
                         Set2Total,
                         Set3Total,
+                        Set4Total
                     ],
                     backgroundColor: [
                         window.chartColors.red,
                         window.chartColors.orange,
-                        window.chartColors.yellow
+                        window.chartColors.yellow,
+                        window.chartColors.blue
                     ],
                     label: 'Dataset 1'
                 }],
                 labels: [
-                    "Costs less than 5",
-                    "Cost more than 5 and less than 15",
-                    "Cost more than 15",
+                    "Costs less than $5",
+                    "Cost more than 5 and less than $15",
+                    "Cost more than $15 and less than $25",
+                    "Cost more than $25",
+
                 ]
             },
             options: {
