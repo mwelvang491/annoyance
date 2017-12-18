@@ -98,14 +98,18 @@ namespace Northwind.Controllers
             // retrieve a list of all categories
             using (NORTHWNDEntities db = new NORTHWNDEntities())
             {
+                // main chart 
                 ViewBag.BeveragesTotal = db.Products.Count(p => p.CategoryID == 1);
                 ViewBag.CondimentsTotal = db.Products.Count(p => p.CategoryID == 2);
                 ViewBag.ConfectionsTotal = db.Products.Count(p => p.CategoryID == 3);
                 ViewBag.DairyTotal = db.Products.Count(p => p.CategoryID == 4);
                 ViewBag.GrainsTotal = db.Products.Count(p => p.CategoryID == 5);
-                ViewBag.MeatTotal = db.Products.Count(p => p.CategoryID == 5);
-                ViewBag.ProduceTotal = db.Products.Count(p => p.CategoryID == 5);
-                ViewBag.SeaFoodTotal = db.Products.Count(p => p.CategoryID == 5);
+                ViewBag.MeatTotal = db.Products.Count(p => p.CategoryID == 6);
+                ViewBag.ProduceTotal = db.Products.Count(p => p.CategoryID == 7);
+                ViewBag.SeaFoodTotal = db.Products.Count(p => p.CategoryID == 8);
+
+                // Beverages Chart
+                ViewBag.Beverages = db.Products.Where(p => p.CategoryID == 1);
 
                 return View();
             }

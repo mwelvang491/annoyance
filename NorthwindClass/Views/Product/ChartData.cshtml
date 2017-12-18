@@ -1,16 +1,18 @@
 ﻿@using NorthwindClass.Models;
-    @{
+@{
     ViewBag.Title = "ChartData";
-    }
+}
+    <div id="ChatButtons">
+        <h3>Chart Views</h3>
+        <a href="#Beverages" id="Beverages" class="list-group-item">Beverage View</a>
+    </div>
     <div class="Chart-Container">
         <canvas id="chart-area" width="400" height="400"></canvas>
     </div>
-
+<div id="ChartScripts">
+    
     @section Scripts{
     <script>
-        var randomScalingFactor = function () {
-            return Math.round(Math.random() * 100);
-        };
         var BeveragesTotal = @ViewBag.BeveragesTotal;
         var CondimentsTotal = @ViewBag.CondimentsTotal;
         var ConfectionsTotal = @ViewBag.ConfectionsTotal;
@@ -68,9 +70,6 @@
                     display: true,
                     labels: {
                         fontColor: 'black'
-                    },
-                    onClick: function (onClick, item) {
-                        alert("Ok, so on the legend click we will direct them to a new page");
                     }
                 }
             }
@@ -85,3 +84,4 @@
 
     </script>
     }
+</div>
