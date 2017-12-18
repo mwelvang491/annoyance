@@ -11,6 +11,10 @@ namespace Northwind.Controllers
 {
     public class ProductController : Controller
     {
+        public object Beverages { get; private set; }
+        public int MinPrice { get; private set; }
+        public int MaxPrice { get; private set; }
+
         // GET: Product/Category
         public ActionResult Category()
         {
@@ -111,6 +115,21 @@ namespace Northwind.Controllers
                 // Beverages Chart
                 ViewBag.Beverages = db.Products.Where(p => p.CategoryID == 1);
 
+                // SElECT p.ProductName FROM Products p Where p.UnitPrice >= 5 AND p.UnitPrice <= 15
+                Beverages = db.Products.Where(p => p.UnitPrice >= 5 && p.UnitPrice <= 15 ).ToList();
+
+                return View();
+            }
+        }
+
+        public ActionResult ChartDataBeverages()
+        {
+            // retrieve a list of all categories
+            using (NORTHWNDEntities db = new NORTHWNDEntities())
+            {
+                ViewBag.Set1 = db.Products.Count(p => p.UnitPrice >= 5 && p.CategoryID == 1);
+                ViewBag.Set2 = db.Products.Count(p => p.UnitPrice >= 5 && p.UnitPrice <= 15 && p.CategoryID == 1);
+                ViewBag.Set3 = db.Products.Count(p => p.UnitPrice >= 15 && p.CategoryID == 1);
                 return View();
             }
         }

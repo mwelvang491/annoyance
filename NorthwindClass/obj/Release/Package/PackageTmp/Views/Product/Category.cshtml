@@ -1,8 +1,14 @@
-﻿@{
-    ViewBag.Title = "Products";
+﻿@model IEnumerable<NorthwindClass.Models.Category>
+@{
+    ViewBag.Title = "Categories";
 }
-<h2>Category</h2>
-<div class="font-md">
-    <a href="~/Home/Index"><i class="fa fa-home"></i> Home</a>
-</div>
 
+<h2>Browse Categories</h2>
+<p>Select from categories:</p>
+<ul>
+    @* If Your seeing this you have the right branch. From Mitch. *@
+    @foreach (var c in Model)
+        {
+          <li><a href="/Home/Products/@c.CategoryID">@c.CategoryName</a></li>
+        }
+</ul>

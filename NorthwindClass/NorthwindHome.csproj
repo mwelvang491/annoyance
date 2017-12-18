@@ -254,12 +254,13 @@
     <Content Include="Models\NORTHWNDModel.edmx.diagram">
       <DependentUpon>NORTHWNDModel.edmx</DependentUpon>
     </Content>
+    <None Include="Properties\PublishProfiles\JackMitchTomFinalProject - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\JackMitchTomFinalProject - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\MwelvangMidTerm - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\MwelvangMidTerm - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\Chart.bundle.min.js" />
     <Content Include="Scripts\Chart.min.js" />
-    <Content Include="Scripts\ChartsCode\MainChart.html" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
@@ -318,9 +319,12 @@
     </Content>
     <Content Include="Views\Home\Categories.cshtml" />
     <Content Include="Views\Home\DBTest.cshtml" />
+    <Content Include="Views\Product\ChartData.cshtml" />
+    <Content Include="Views\Product\ChartDataBeverages.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Scripts\ChartsCode\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Controllers\fonts\glyphicons-halflings-regular.woff" />

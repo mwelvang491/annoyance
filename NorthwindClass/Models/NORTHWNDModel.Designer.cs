@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'C:\Users\mitchell\Source\Repos\FinalDotNetProject2\NorthwindClass\Models\NORTHWNDModel.edmx'. 
+﻿// T4 code generation is enabled for model 'C:\Users\Jack\Documents\college\SoftwarePrograming\(Dot)Net\FinallProject\annoyance\NorthwindClass\Models\NORTHWNDModel.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.

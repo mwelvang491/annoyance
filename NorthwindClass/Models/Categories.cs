@@ -13,5 +13,8 @@ namespace NorthwindClass.Models
         //this data is also from a different table.
         //and goes on the center of the page
         public List<Product> Products { get; set; }
+
+        public string Value { get; set; }
+        public string Color { get; set; }
     }
 }
